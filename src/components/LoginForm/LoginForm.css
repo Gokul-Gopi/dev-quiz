@@ -1,0 +1,30 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid white;
+  padding: 2.5rem;
+  border-radius: 0.5rem;
+  min-width: 30rem;
+}
+
+.form-btn {
+  padding: 0.8rem;
+  font-size: 1.2rem;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.form-footer {
+  margin-top: 1.3rem;
+  text-align: center;
+}
+
+.form-footer strong {
+  color: var(--primary-color);
+  margin-left: 0.2rem;
+  cursor: pointer;
+}
