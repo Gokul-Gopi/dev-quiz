@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { TextInput } from "../FormInputs/TextInput";
-import "./LoginForm.css";
+import "./Form.common.css";
 import { FiMail, FiUnlock } from "react-icons/fi";
 import { HiOutlineLogin } from "react-icons/hi";
 import { IconButton } from "../IconButton/IconButton";
@@ -25,7 +25,7 @@ export const LoginForm = () => {
         label="Email"
         name="email"
         placeholder="Enter email"
-        icon={<FiMail style={iconStyle} />}
+        icon={<FiMail className="input-icon" />}
         rules={{
           required: {
             value: true,
@@ -43,7 +43,7 @@ export const LoginForm = () => {
         label="Password"
         name="password"
         placeholder="Enter password"
-        icon={<FiUnlock style={iconStyle} />}
+        icon={<FiUnlock className="input-icon" />}
         rules={{
           required: {
             value: true,
@@ -62,9 +62,4 @@ export const LoginForm = () => {
       </div>
     </form>
   );
-};
-
-export const iconStyle = {
-  color: "#979797",
-  fontSize: "1.3rem",
 };

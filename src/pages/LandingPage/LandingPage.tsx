@@ -1,6 +1,6 @@
 import "./LandingPage.css";
 import { AiOutlineBulb } from "react-icons/ai";
-import { LoginForm } from "../../components/LoginForm/LoginForm";
+import { LoginForm } from "../../components/Forms/LoginForm";
 
 export const LandingPage = () => {
   return (

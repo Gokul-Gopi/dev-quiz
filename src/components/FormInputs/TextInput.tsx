@@ -1,5 +1,5 @@
 import { IFormInput } from "../../utils/types";
-import "./Input.css";
+import "./Input.common.css";
 
 export const TextInput = ({
   label,

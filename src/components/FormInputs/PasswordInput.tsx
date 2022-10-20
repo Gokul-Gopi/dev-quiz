@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { IFormInput } from "../../utils/types";
-import "./Input.css";
+import "./Input.common.css";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 
 export const PasswordInput = ({

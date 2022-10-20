@@ -19,3 +19,13 @@
 .headings h1 span {
   color: var(--primary-color);
 }
+
+@media screen and (max-width: 600px) {
+  .landing-page {
+    min-height: 90vh;
+  }
+
+  .headings {
+    font-size: 1.5rem;
+  }
+}
