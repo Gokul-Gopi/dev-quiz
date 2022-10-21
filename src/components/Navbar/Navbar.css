@@ -1,3 +1,107 @@
 nav {
-  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--primary-color);
+  padding: 1.3rem;
+}
+
+nav h2 {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+}
+
+nav h2 span {
+  color: var(--primary-color);
+  margin: 0 0.3rem;
+}
+
+.nav-btns {
+  display: flex;
+  align-items: center;
+}
+
+.nav-btns button {
+  font-size: 2rem;
+  background: transparent;
+  color: white;
+  margin-right: 0.5rem;
+  border: none;
+  text-align: center;
+}
+
+.nav-btns button:hover {
+  color: var(--primary-color);
+}
+
+.logout-modal {
+  position: relative;
+  background: #262f3d;
+  border-radius: 0.4rem;
+  padding: 1.6rem 1.4rem;
+  font-size: 1.3rem;
+  width: 30rem;
+  text-align: center;
+}
+
+.logout-modal p {
+  color: var(--primary-color);
+}
+
+.logout-modal > div {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.logout-modal span {
+  position: relative;
+  cursor: pointer;
+}
+
+.logout-modal span::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-color);
+  height: 0.2rem;
+  width: 100%;
+  transform: scale(0, 1);
+  transition: all 0.3s;
+}
+
+.logout-modal span:hover::after {
+  transform: scale(1, 1);
+}
+
+.close-btn {
+  position: absolute;
+  top: 5%;
+  right: 2%;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+  .nav-btns button {
+    font-size: 1.5rem;
+  }
+
+  nav h2 {
+    font-size: 1.5rem;
+  }
+
+  nav {
+    padding: 1rem;
+  }
+
+  .logout-modal {
+    width: 80%;
+  }
+  .logout-modal {
+    font-size: 1.2rem;
+  }
 }
