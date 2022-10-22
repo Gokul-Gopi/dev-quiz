@@ -3,6 +3,7 @@
   width: 12rem;
   border: 2px solid white;
   cursor: pointer;
+  height: 100%;
 }
 
 .quiz-topic img {
@@ -29,4 +30,10 @@
 
 .overlay:hover {
   opacity: 1;
+}
+
+@media screen and (max-width: 500px) {
+  .quiz-topic {
+    width: 8rem;
+  }
 }
