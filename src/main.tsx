@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import { LandingPage } from "./pages/LandingPage/LandingPage";
 import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
 import { QuizSelection } from "./pages/QuizSelection/QuizSelection";
-import { ModalProvider } from "./components/Context/ModalProvider";
+import { ModalProvider } from "./context/ModalProvider";
 
 const router = createBrowserRouter([
   {

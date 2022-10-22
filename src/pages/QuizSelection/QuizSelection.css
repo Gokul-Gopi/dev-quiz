@@ -1,0 +1,28 @@
+.quiz-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quiz-selection p {
+  font-size: 1.4rem;
+}
+
+.quiz-selection .title {
+  text-align: center;
+  margin: 4rem;
+}
+
+.quiz-selection .title span {
+  display: block;
+  margin-top: 1rem;
+  color: #fb813e;
+  cursor: pointer;
+}
+
+.quiz-topic-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  /* border: 1px solid white; */
+}
