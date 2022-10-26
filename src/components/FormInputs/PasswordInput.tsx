@@ -32,12 +32,12 @@ export const PasswordInput = ({
         {showPassword ? (
           <AiOutlineEyeInvisible
             onClick={showPasswordHandler}
-            style={{ color: "#757575", fontSize: "1.3rem", cursor: "pointer" }}
+            style={{ color: "#656565", fontSize: "1.3rem", cursor: "pointer" }}
           />
         ) : (
           <AiOutlineEye
             onClick={showPasswordHandler}
-            style={{ color: "#757575", fontSize: "1.3rem", cursor: "pointer" }}
+            style={{ color: "#656565", fontSize: "1.3rem", cursor: "pointer" }}
           />
         )}
       </div>

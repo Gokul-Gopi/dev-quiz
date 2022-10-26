@@ -1,0 +1,28 @@
+.instruction-modal {
+  position: relative;
+  background-color: var(--modal-bg);
+  padding: 1.4rem 2rem;
+  border-radius: 0.4rem;
+}
+
+.instruction-modal p {
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 1rem;
+  letter-spacing: 0.8px;
+}
+
+.instruction {
+  margin-bottom: 0.3rem;
+}
+
+.instruction span {
+  margin-left: 0.3rem;
+}
+
+.close-btn {
+  position: absolute;
+  top: 5%;
+  right: 2%;
+  cursor: pointer;
+}

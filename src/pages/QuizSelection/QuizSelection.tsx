@@ -1,4 +1,6 @@
+import { InstructionModal } from "../../components/Modals/InstructionModal";
 import { QuizTopic } from "../../components/QuizTopic/QuizTopic";
+import { ModalActions, useModal } from "../../context/ModalProvider";
 import { BasicLayout } from "../../layout/BasicLayout";
 import "./QuizSelection.css";
 
@@ -31,12 +33,20 @@ const quizes = [
 ];
 
 export const QuizSelection = () => {
+  const { state, dispatch } = useModal();
+
   return (
     <BasicLayout>
       <div className="quiz-selection">
         <div className="title">
           <p>Hey {user}, select any topic to get started with the quiz</p>
-          <span>Instructions</span>
+          <span
+            onClick={() => {
+              dispatch({ type: ModalActions.openInstructions });
+            }}
+          >
+            Instructions
+          </span>
         </div>
 
         <div className="quiz-topic-container">
@@ -45,9 +55,7 @@ export const QuizSelection = () => {
           })}
         </div>
 
-        {/* <Modal isOpen={openModal} setOpenModal={setOpenModal}>
-          <Instructions />
-        </Modal> */}
+        {state.instructions && <InstructionModal />}
       </div>
     </BasicLayout>
   );
