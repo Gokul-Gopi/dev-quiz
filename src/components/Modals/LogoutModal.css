@@ -1,0 +1,63 @@
+.logout-modal {
+  position: relative;
+  background: var(--modal-bg);
+  border-radius: 0.4rem;
+  padding: 1.6rem 1.4rem;
+  font-size: 1.3rem;
+  width: 30rem;
+  text-align: center;
+}
+
+.logout-modal p {
+  color: var(--primary-color);
+}
+
+.logout-modal > div {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.logout-modal span {
+  position: relative;
+  cursor: pointer;
+}
+
+.logout-modal span::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-color);
+  height: 0.2rem;
+  width: 100%;
+  transform: scale(0, 1);
+  transition: all 0.3s;
+}
+
+.logout-modal span:hover::after {
+  transform: scale(1, 1);
+}
+
+.close-btn {
+  position: absolute;
+  top: 5%;
+  right: 2%;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 500px) {
+  .logout-modal {
+    width: 80%;
+  }
+  .logout-modal {
+    font-size: 1.2rem;
+  }
+  .logout-modal > div {
+    margin-top: 1.5rem;
+  }
+}
