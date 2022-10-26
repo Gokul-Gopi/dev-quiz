@@ -12,10 +12,10 @@ const instructionArr = [
 ];
 
 export const InstructionModal = () => {
-  const { dispatch } = useModal();
+  const { modalDispatch } = useModal();
 
   const closeModal = (event: React.MouseEvent) => {
-    dispatch({ type: ModalActions.openInstructions });
+    modalDispatch({ type: ModalActions.instructions });
   };
 
   return (

@@ -8,7 +8,7 @@ import "./Navbar.css";
 import { LogoutModal } from "../Modals/LogoutModal";
 
 export const Navbar = () => {
-  const { state, dispatch } = useModal();
+  const { modalState, modalDispatch } = useModal();
 
   return (
     <nav>
@@ -21,8 +21,8 @@ export const Navbar = () => {
         </button>
         <button
           onClick={() =>
-            dispatch({
-              type: ModalActions.openLogout,
+            modalDispatch({
+              type: ModalActions.logout,
             })
           }
         >
@@ -30,7 +30,7 @@ export const Navbar = () => {
         </button>
       </div>
 
-      {state.logout && <LogoutModal />}
+      {modalState.logout && <LogoutModal />}
     </nav>
   );
 };

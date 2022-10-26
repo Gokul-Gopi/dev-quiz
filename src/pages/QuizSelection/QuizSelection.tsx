@@ -33,7 +33,7 @@ const quizes = [
 ];
 
 export const QuizSelection = () => {
-  const { state, dispatch } = useModal();
+  const { modalState, modalDispatch } = useModal();
 
   return (
     <BasicLayout>
@@ -42,7 +42,7 @@ export const QuizSelection = () => {
           <p>Hey {user}, select any topic to get started with the quiz</p>
           <span
             onClick={() => {
-              dispatch({ type: ModalActions.openInstructions });
+              modalDispatch({ type: ModalActions.instructions });
             }}
           >
             Instructions
@@ -55,7 +55,7 @@ export const QuizSelection = () => {
           })}
         </div>
 
-        {state.instructions && <InstructionModal />}
+        {modalState.instructions && <InstructionModal />}
       </div>
     </BasicLayout>
   );

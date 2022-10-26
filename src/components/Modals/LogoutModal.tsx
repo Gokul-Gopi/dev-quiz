@@ -4,11 +4,11 @@ import { Modal } from "./Modal";
 import "./LogoutModal.css";
 
 export const LogoutModal = () => {
-  const { dispatch } = useModal();
+  const { modalDispatch } = useModal();
 
   const closeModal = (event: React.MouseEvent) => {
-    dispatch({
-      type: ModalActions.openLogout,
+    modalDispatch({
+      type: ModalActions.logout,
     });
   };
 

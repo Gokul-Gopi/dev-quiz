@@ -5,8 +5,8 @@ import { useModal } from "../../context/ModalProvider";
 import { RegisterModal } from "../../components/Modals/RegsiterModal";
 
 export const LandingPage = () => {
-  const { state } = useModal();
-  // console.log(state.signup);
+  const { modalState } = useModal();
+
   return (
     <div className="landing-page">
       <div className="headings">
@@ -17,7 +17,7 @@ export const LandingPage = () => {
         </h1>
       </div>
       <LoginForm />
-      {state.signup && <RegisterModal />}
+      {modalState.signup && <RegisterModal />}
     </div>
   );
 };

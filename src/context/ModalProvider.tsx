@@ -8,22 +8,22 @@ const initialState = {
 };
 
 const ModalContext = createContext<{
-  state: IModalState;
-  dispatch: React.Dispatch<IModalAction>;
+  modalState: IModalState;
+  modalDispatch: React.Dispatch<IModalAction>;
 }>({
-  state: initialState,
-  dispatch: () => null,
+  modalState: initialState,
+  modalDispatch: () => null,
 });
 
 const reducer = (state: IModalState, action: IModalAction): IModalState => {
   switch (action.type) {
-    case "openLogoutModal":
+    case "LOGOUT_MODAL":
       return { ...state, logout: !state.logout };
 
-    case "openInstructionsModal":
+    case "INSTRUCTION_MODAL":
       return { ...state, instructions: !state.instructions };
 
-    case "openSignupModal":
+    case "SIGNUP_MODAL":
       return { ...state, signup: !state.signup };
 
     default:
@@ -35,16 +35,18 @@ const ModalProvider = ({ children }: IModalProvider) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <ModalContext.Provider value={{ state, dispatch }}>
+    <ModalContext.Provider
+      value={{ modalState: state, modalDispatch: dispatch }}
+    >
       {children}
     </ModalContext.Provider>
   );
 };
 
 enum ModalActions {
-  openLogout = "openLogoutModal",
-  openInstructions = "openInstructionsModal",
-  openSignup = "openSignupModal",
+  logout = "LOGOUT_MODAL",
+  instructions = "INSTRUCTION_MODAL",
+  signup = "SIGNUP_MODAL",
 }
 
 const useModal = () => useContext(ModalContext);

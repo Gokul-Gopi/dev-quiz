@@ -10,7 +10,7 @@ import { emailRegex } from "../../utils/regex";
 import { ModalActions, useModal } from "../../context/ModalProvider";
 
 export const LoginForm = () => {
-  const { dispatch } = useModal();
+  const { modalDispatch } = useModal();
   const {
     register,
     handleSubmit,
@@ -60,7 +60,7 @@ export const LoginForm = () => {
       <div className="form-footer">
         <span>
           Don't have account?{" "}
-          <strong onClick={() => dispatch({ type: ModalActions.openSignup })}>
+          <strong onClick={() => modalDispatch({ type: ModalActions.signup })}>
             Sign up
           </strong>
         </span>

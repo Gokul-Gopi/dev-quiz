@@ -44,9 +44,9 @@ export interface IModalState {
 }
 
 export type ModalActionType =
-  | "openLogoutModal"
-  | "openInstructionsModal"
-  | "openSignupModal";
+  | "LOGOUT_MODAL"
+  | "INSTRUCTION_MODAL"
+  | "SIGNUP_MODAL";
 export interface IModalAction {
   type: ModalActionType;
 }

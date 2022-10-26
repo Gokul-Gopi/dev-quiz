@@ -3,11 +3,11 @@ import { Modal } from "./Modal";
 import { RegsiterForm } from "../Forms/RegsiterForm";
 
 export const RegisterModal = () => {
-  const { dispatch } = useModal();
+  const { modalDispatch } = useModal();
 
   const closeModal = (event: React.MouseEvent) => {
-    dispatch({
-      type: ModalActions.openSignup,
+    modalDispatch({
+      type: ModalActions.signup,
     });
   };
 
