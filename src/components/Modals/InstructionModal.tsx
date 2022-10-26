@@ -15,12 +15,11 @@ export const InstructionModal = () => {
   const { dispatch } = useModal();
 
   const closeModal = (event: React.MouseEvent) => {
-    event.stopPropagation();
     dispatch({ type: ModalActions.openInstructions });
   };
 
   return (
-    <Modal closeModal={closeModal}>
+    <Modal>
       <div className="instruction-modal">
         <IoCloseOutline onClick={closeModal} className="close-btn" />
         <p>Instructions</p>

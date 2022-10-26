@@ -7,8 +7,10 @@ import { IconButton } from "../IconButton/IconButton";
 import { PasswordInput } from "../FormInputs/PasswordInput";
 import { ILogin } from "../../utils/types";
 import { emailRegex } from "../../utils/regex";
+import { ModalActions, useModal } from "../../context/ModalProvider";
 
 export const LoginForm = () => {
+  const { dispatch } = useModal();
   const {
     register,
     handleSubmit,
@@ -57,7 +59,10 @@ export const LoginForm = () => {
 
       <div className="form-footer">
         <span>
-          Don't have account? <strong>Sign up</strong>
+          Don't have account?{" "}
+          <strong onClick={() => dispatch({ type: ModalActions.openSignup })}>
+            Sign up
+          </strong>
         </span>
       </div>
     </form>

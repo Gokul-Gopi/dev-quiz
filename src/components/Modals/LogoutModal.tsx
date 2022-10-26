@@ -7,14 +7,13 @@ export const LogoutModal = () => {
   const { dispatch } = useModal();
 
   const closeModal = (event: React.MouseEvent) => {
-    event.stopPropagation();
     dispatch({
       type: ModalActions.openLogout,
     });
   };
 
   return (
-    <Modal closeModal={closeModal}>
+    <Modal>
       <div className="logout-modal">
         <IoCloseOutline onClick={closeModal} className="close-btn" />
         <p>Are you sure you want to logout?</p>

@@ -22,6 +22,13 @@ export interface ILogin {
   password: string;
 }
 
+export interface IRegisterUser {
+  name: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
+
 export interface IQuizTopic {
   name: string;
   image: string;
@@ -33,9 +40,13 @@ export interface IModalProvider {
 export interface IModalState {
   logout: boolean;
   instructions: boolean;
+  signup: boolean;
 }
 
-export type ModalActionType = "openLogoutModal" | "openInstructionsModal";
+export type ModalActionType =
+  | "openLogoutModal"
+  | "openInstructionsModal"
+  | "openSignupModal";
 export interface IModalAction {
   type: ModalActionType;
 }
