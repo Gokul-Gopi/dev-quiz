@@ -4,18 +4,18 @@
   margin-bottom: 1.2rem;
 }
 
-label {
+.form-input label {
   color: var(--primary-color);
   margin-bottom: 0.4rem;
 }
 
-input {
+.form-input input {
   border: none;
   width: 85%;
   font-size: 1.02rem;
 }
 
-input:focus {
+.form-input input:focus {
   outline: none;
 }
 

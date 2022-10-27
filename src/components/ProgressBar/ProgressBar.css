@@ -1,0 +1,29 @@
+.progress-bar {
+  position: relative;
+  width: 75%;
+  max-width: 60rem;
+  height: 1rem;
+  border-radius: 0.3rem;
+  border: 1px solid var(--primary-color);
+}
+
+.progress-bar .progress {
+  height: 100%;
+  border-radius: 0.3rem;
+  background-color: var(--primary-color);
+}
+
+.progress-bar span {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 700px) {
+  .progress-bar {
+    width: 90%;
+  }
+}
