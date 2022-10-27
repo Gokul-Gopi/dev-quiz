@@ -7,6 +7,7 @@ import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
 import { QuizSelection } from "./pages/QuizSelection/QuizSelection";
 import { ModalProvider } from "./context/ModalProvider";
 import { QuestionPage } from "./pages/QuestionPage/QuestionPage";
+import { ResultPage } from "./pages/ResultPage/ResultPage";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: "quiz/:quizId",
     element: <QuestionPage />,
+  },
+  {
+    path: "quiz/result",
+    element: <ResultPage />,
   },
 ]);
 
