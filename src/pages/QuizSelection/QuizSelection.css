@@ -17,7 +17,7 @@
 .quiz-selection .title span {
   display: block;
   margin-top: 1rem;
-  color: #fb813e;
+  color: var(--secondary-color);
   cursor: pointer;
 }
 

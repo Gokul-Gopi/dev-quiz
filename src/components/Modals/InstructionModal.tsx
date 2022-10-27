@@ -1,3 +1,4 @@
+import { AiOutlineAlignRight } from "react-icons/ai";
 import { FaHandPointRight } from "react-icons/fa";
 import { IoCloseOutline } from "react-icons/io5";
 import { ModalActions, useModal } from "../../context/ModalProvider";
@@ -22,7 +23,10 @@ export const InstructionModal = () => {
     <Modal>
       <div className="instruction-modal">
         <IoCloseOutline onClick={closeModal} className="close-btn" />
-        <p>Instructions</p>
+        <p>
+          <AiOutlineAlignRight />
+          Instructions
+        </p>
         {instructionArr.map((e, i) => {
           return (
             <div key={`instruction${i}`} className="instruction">

@@ -1,11 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { LandingPage } from "./pages/LandingPage/LandingPage";
 import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
 import { QuizSelection } from "./pages/QuizSelection/QuizSelection";
 import { ModalProvider } from "./context/ModalProvider";
+import { QuestionPage } from "./pages/QuestionPage/QuestionPage";
+import { ResultPage } from "./pages/ResultPage/ResultPage";
+import { Certificates } from "./pages/CertificatesPage/CertificatesPage";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +19,18 @@ const router = createBrowserRouter([
   {
     path: "quiz",
     element: <QuizSelection />,
+  },
+  {
+    path: "quiz/:quizId",
+    element: <QuestionPage />,
+  },
+  {
+    path: "quiz/result",
+    element: <ResultPage />,
+  },
+  {
+    path: "certificates",
+    element: <Certificates />,
   },
 ]);
 

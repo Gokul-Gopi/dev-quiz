@@ -1,0 +1,58 @@
+.result-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 3rem;
+}
+
+.score-detail {
+  text-align: center;
+}
+
+.score-detail p:nth-child(1) {
+  font-size: 1.5rem;
+}
+
+.score-detail p:nth-child(2) {
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+.other-details {
+  margin: 2rem 0;
+}
+
+.other-details > div {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
+}
+
+.other-details .icon {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.verify-answers p {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.verify-answers div {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.result-page .btn {
+  background: var(--primary-color);
+  font-size: 1.1rem;
+  color: white;
+  border-radius: 0.3rem;
+  padding: 0.5rem 0.8rem;
+  margin-top: 2rem;
+}

@@ -1,11 +1,8 @@
-import {
-  AiOutlineBulb,
-  AiOutlineLogout,
-  AiOutlineTrophy,
-} from "react-icons/ai";
+import { AiOutlineBulb, AiOutlineLogout } from "react-icons/ai";
 import { ModalActions, useModal } from "../../context/ModalProvider";
 import "./Navbar.css";
 import { LogoutModal } from "../Modals/LogoutModal";
+import { BsAward } from "react-icons/bs";
 
 export const Navbar = () => {
   const { modalState, modalDispatch } = useModal();
@@ -17,7 +14,7 @@ export const Navbar = () => {
       </h2>
       <div className="nav-btns">
         <button>
-          <AiOutlineTrophy />
+          <BsAward />
         </button>
         <button
           onClick={() =>

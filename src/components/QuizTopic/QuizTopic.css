@@ -36,4 +36,8 @@
   .quiz-topic {
     width: 8rem;
   }
+
+  .overlay {
+    font-size: 1.4rem;
+  }
 }
