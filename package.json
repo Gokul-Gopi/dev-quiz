@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
-	"homepage": "https://dev-quiz-alpha.vercel.app",
+	"homepage": "https://dev-quiz-alpha.vercel.app/",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
