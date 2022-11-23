@@ -14,6 +14,7 @@ export interface IFormInput {
 export interface IIconButton {
   icon: JSX.Element;
   text: string;
+  isLoading?: boolean;
   className?: string;
 }
 

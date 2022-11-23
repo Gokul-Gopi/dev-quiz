@@ -30,12 +30,12 @@ export const PasswordInput = ({
           {...register(name, rules)}
         />
         {showPassword ? (
-          <AiOutlineEyeInvisible
+          <AiOutlineEye
             onClick={showPasswordHandler}
             style={{ color: "#656565", fontSize: "1.3rem", cursor: "pointer" }}
           />
         ) : (
-          <AiOutlineEye
+          <AiOutlineEyeInvisible
             onClick={showPasswordHandler}
             style={{ color: "#656565", fontSize: "1.3rem", cursor: "pointer" }}
           />

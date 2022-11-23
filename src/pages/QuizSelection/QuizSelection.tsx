@@ -1,7 +1,7 @@
 import { InstructionModal } from "../../components/Modals/InstructionModal";
 import { QuizTopic } from "../../components/QuizTopic/QuizTopic";
 import { ModalActions, useModal } from "../../context/ModalProvider";
-import { BasicLayout } from "../../Layout/BasicLayout";
+import { BasicLayout } from "../../layout/BasicLayout";
 import "./QuizSelection.css";
 
 const user = "Maxx";

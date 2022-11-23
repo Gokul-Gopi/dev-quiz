@@ -10,17 +10,11 @@ form {
 
 form h1 {
   text-align: center;
-  margin-bottom: 0.2rem;
+  margin-bottom: 1rem;
 }
 
 form h1 span {
   color: var(--primary-color);
-}
-
-form h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-  font-size: 1.6rem;
 }
 
 .form-btn {

@@ -9,12 +9,18 @@ import "./Form.common.css";
 import { IconButton } from "../IconButton/IconButton";
 import { VscVerified } from "react-icons/vsc";
 import { IoCloseOutline } from "react-icons/io5";
+import { regsiterUser } from "../../services/user";
+import { useState } from "react";
+import { getErrorMessage, showToast } from "../../utils/helpers";
+import { useModal } from "../../context/ModalProvider";
 
 interface IRegsiterForm {
   closeForm: (e: React.MouseEvent) => void;
 }
 
 export const RegsiterForm = ({ closeForm }: IRegsiterForm) => {
+  const [loading, setLoading] = useState(false);
+  const { modalDispatch } = useModal();
   const {
     register,
     handleSubmit,
@@ -22,8 +28,19 @@ export const RegsiterForm = ({ closeForm }: IRegsiterForm) => {
     formState: { errors },
   } = useForm<IRegisterUser>();
 
-  const registerHandler = (data: IRegisterUser) => {
-    console.log(data);
+  const registerHandler = async (data: IRegisterUser) => {
+    try {
+      setLoading(true);
+      const response = await regsiterUser(data);
+      if (response?.status === 201) {
+        showToast("Account created, Please login to continue", "success");
+        modalDispatch({ type: "SIGNUP_MODAL" });
+      }
+    } catch (error: any) {
+      return showToast(getErrorMessage(error), "error");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -32,20 +49,37 @@ export const RegsiterForm = ({ closeForm }: IRegsiterForm) => {
       <h1>
         <span>Dev</span> Quiz!
       </h1>
-      <h2>Register</h2>
       <TextInput
-        label="Name"
-        name="name"
-        placeholder="Enter name"
+        label="Firstname"
+        name="firstname"
+        placeholder="Enter firstname"
         icon={<BiUserCircle className="input-icon" />}
         rules={{
           required: {
             value: true,
-            message: "Name is required",
+            message: "Firstname is required",
           },
           minLength: {
             value: 2,
-            message: "Name should have atleast 2 characters",
+            message: "Firstname should have atleast 2 characters",
+          },
+        }}
+        register={register}
+        errors={errors}
+      />
+      <TextInput
+        label="Lastname"
+        name="lastname"
+        placeholder="Enter lastname"
+        icon={<BiUserCircle className="input-icon" />}
+        rules={{
+          required: {
+            value: true,
+            message: "Lastname is required",
+          },
+          minLength: {
+            value: 1,
+            message: "Lastname should have atleast 1 character",
           },
         }}
         register={register}
@@ -106,7 +140,12 @@ export const RegsiterForm = ({ closeForm }: IRegsiterForm) => {
         register={register}
         errors={errors}
       />
-      <IconButton className="form-btn" icon={<VscVerified />} text="Register" />
+      <IconButton
+        isLoading={loading}
+        className="form-btn"
+        icon={<VscVerified />}
+        text="Register"
+      />
     </form>
   );
 };
