@@ -35,9 +35,6 @@ export interface IQuizTopic {
   image: string;
 }
 
-export interface IModalProvider {
-  children: JSX.Element;
-}
 export interface IModalState {
   logout: boolean;
   instructions: boolean;
@@ -50,4 +47,14 @@ export type ModalActionType =
   | "SIGNUP_MODAL";
 export interface IModalAction {
   type: ModalActionType;
+}
+
+export interface IAuthState {
+  name: string;
+  isLoggedIn: boolean;
+}
+
+export interface IAuthAction {
+  type: "SET_USER";
+  payload: IAuthState;
 }

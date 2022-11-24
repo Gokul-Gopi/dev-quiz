@@ -1,5 +1,6 @@
 import { InstructionModal } from "../../components/Modals/InstructionModal";
 import { QuizTopic } from "../../components/QuizTopic/QuizTopic";
+import { useAuth } from "../../context/AuthProvider";
 import { ModalActions, useModal } from "../../context/ModalProvider";
 import { BasicLayout } from "../../layout/BasicLayout";
 import "./QuizSelection.css";
@@ -34,12 +35,15 @@ const quizes = [
 
 export const QuizSelection = () => {
   const { modalState, modalDispatch } = useModal();
-
+  const { authState } = useAuth();
+  console.log("quiz selection page: ", authState);
   return (
     <BasicLayout>
       <div className="quiz-selection">
         <div className="title">
-          <p>Hey {user}, select any topic to get started with the quiz</p>
+          <p>
+            Hey {authState.name}, select any topic to get started with the quiz
+          </p>
           <span
             onClick={() => {
               modalDispatch({ type: ModalActions.instructions });

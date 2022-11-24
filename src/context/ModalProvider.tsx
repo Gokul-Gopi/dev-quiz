@@ -1,5 +1,5 @@
 import { createContext, useContext, useReducer } from "react";
-import { IModalAction, IModalProvider, IModalState } from "../utils/types";
+import { IModalAction, IModalState } from "../utils/types";
 
 const initialState = {
   logout: false,
@@ -31,7 +31,7 @@ const reducer = (state: IModalState, action: IModalAction): IModalState => {
   }
 };
 
-const ModalProvider = ({ children }: IModalProvider) => {
+const ModalProvider = ({ children }: { children: JSX.Element }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (

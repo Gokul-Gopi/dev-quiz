@@ -11,6 +11,7 @@ import { ModalProvider } from "./context/ModalProvider";
 import { QuestionPage } from "./pages/QuestionPage/QuestionPage";
 import { ResultPage } from "./pages/ResultPage/ResultPage";
 import { Certificates } from "./pages/CertificatesPage/CertificatesPage";
+import { AuthProvider } from "./context/AuthProvider";
 
 const router = createBrowserRouter([
   {
@@ -39,8 +40,10 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <ToastContainer />
-    <ModalProvider>
-      <RouterProvider router={router} />
-    </ModalProvider>
+    <AuthProvider>
+      <ModalProvider>
+        <RouterProvider router={router} />
+      </ModalProvider>
+    </AuthProvider>
   </React.StrictMode>
 );

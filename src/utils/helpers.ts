@@ -27,3 +27,7 @@ export const getErrorMessage = (error: any) => {
 
   return message;
 };
+
+export const saveToLocalStorage = (data: any) => {
+  return localStorage.setItem("user", JSON.stringify(data));
+};

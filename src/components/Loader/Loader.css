@@ -6,6 +6,7 @@
 }
 .loader div {
   position: absolute;
+  top: 5px;
   width: 13px;
   height: 13px;
   border-radius: 50%;

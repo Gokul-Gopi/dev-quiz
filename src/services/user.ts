@@ -1,8 +1,8 @@
 import { invokeAxios } from "../utils/axios";
 
-export const loginUser = async () => {
+export const loginUser = async (data: any) => {
   try {
-    const response = await invokeAxios("/auth/login");
+    const response = await invokeAxios("/auth/login", data, "POST");
     return response;
   } catch (error) {
     throw error;

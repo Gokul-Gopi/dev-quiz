@@ -8,17 +8,46 @@ import { PasswordInput } from "../FormInputs/PasswordInput";
 import { ILogin } from "../../utils/types";
 import { emailRegex } from "../../utils/regex";
 import { ModalActions, useModal } from "../../context/ModalProvider";
+import { useState } from "react";
+import { loginUser } from "../../services/user";
+import {
+  getErrorMessage,
+  saveToLocalStorage,
+  showToast,
+} from "../../utils/helpers";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthProvider";
 
 export const LoginForm = () => {
   const { modalDispatch } = useModal();
+  const navigate = useNavigate();
+  const { authDispatch } = useAuth();
+  const [loading, setLoading] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<ILogin>();
 
-  const loginHandler = (data: ILogin) => {
-    console.log(data);
+  const loginHandler = async (data: ILogin) => {
+    try {
+      setLoading(true);
+      const response = await loginUser(data);
+      if (response?.status === 200) {
+        const userDetails = response?.data?.data;
+        saveToLocalStorage(userDetails);
+        authDispatch({
+          type: "SET_USER",
+          payload: { name: userDetails?.firstname, isLoggedIn: true },
+        });
+        showToast("Logged in", "success");
+        navigate("/quiz");
+      }
+    } catch (error: any) {
+      showToast(getErrorMessage(error), "error");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -55,7 +84,12 @@ export const LoginForm = () => {
         register={register}
         errors={errors}
       />
-      <IconButton className="form-btn" icon={<HiOutlineLogin />} text="Login" />
+      <IconButton
+        className="form-btn"
+        isLoading={loading}
+        icon={<HiOutlineLogin />}
+        text="Login"
+      />
 
       <div className="form-footer">
         <span>
