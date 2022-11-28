@@ -11,7 +11,6 @@ const reducer = (state: IAuthState, action: IAuthAction): IAuthState => {
   switch (action.type) {
     case "SET_USER":
       const { name, isLoggedIn } = action.payload;
-      console.log("ínside reducer: ", action.payload);
       return { name, isLoggedIn };
 
     default:
@@ -29,6 +28,7 @@ const AuthProvider = ({ children }: { children: JSX.Element }) => {
 
   useEffect(() => {
     const userDetails = JSON.parse(localStorage.getItem("user") as string);
+
     if (userDetails?.token) {
       dispatch({
         type: "SET_USER",
@@ -37,6 +37,11 @@ const AuthProvider = ({ children }: { children: JSX.Element }) => {
       axiosInstance.defaults.headers.common[
         "authorization"
       ] = `Bearer ${userDetails?.token}`;
+    } else {
+      dispatch({
+        type: "SET_USER",
+        payload: { name: "", isLoggedIn: false },
+      });
     }
   }, [state.isLoggedIn]);
 

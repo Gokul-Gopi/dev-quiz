@@ -36,7 +36,7 @@ const quizes = [
 export const QuizSelection = () => {
   const { modalState, modalDispatch } = useModal();
   const { authState } = useAuth();
-  console.log("quiz selection page: ", authState);
+
   return (
     <BasicLayout>
       <div className="quiz-selection">

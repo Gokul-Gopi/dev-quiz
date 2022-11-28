@@ -21,13 +21,17 @@ import { useAuth } from "../../context/AuthProvider";
 export const LoginForm = () => {
   const { modalDispatch } = useModal();
   const navigate = useNavigate();
-  const { authDispatch } = useAuth();
+  const { authState, authDispatch } = useAuth();
   const [loading, setLoading] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ILogin>();
+  } = useForm<ILogin>({
+    defaultValues: {
+      password: "password@123",
+    },
+  });
 
   const loginHandler = async (data: ILogin) => {
     try {
