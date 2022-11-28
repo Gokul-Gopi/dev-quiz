@@ -1,6 +1,6 @@
 import { BiUserCircle } from "react-icons/bi";
 import { useForm } from "react-hook-form";
-import { FiMail, FiUnlock } from "react-icons/fi";
+import { FiLock, FiMail } from "react-icons/fi";
 import { emailRegex, passwordRegex } from "../../utils/regex";
 import { IRegisterUser } from "../../utils/types";
 import { PasswordInput } from "../FormInputs/PasswordInput";
@@ -107,7 +107,7 @@ export const RegsiterForm = ({ closeForm }: IRegsiterForm) => {
         label="Password"
         name="password"
         placeholder="Create a password"
-        icon={<FiUnlock className="input-icon" />}
+        icon={<FiLock className="input-icon" />}
         rules={{
           required: {
             value: true,
@@ -126,7 +126,7 @@ export const RegsiterForm = ({ closeForm }: IRegsiterForm) => {
         label="Confirm password"
         name="confirmPassword"
         placeholder="Confirm password"
-        icon={<FiUnlock className="input-icon" />}
+        icon={<FiLock className="input-icon" />}
         rules={{
           required: {
             value: true,

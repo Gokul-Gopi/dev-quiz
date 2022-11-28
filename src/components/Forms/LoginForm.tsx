@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { TextInput } from "../FormInputs/TextInput";
 import "./Form.common.css";
-import { FiMail, FiUnlock } from "react-icons/fi";
+import { FiLock, FiMail } from "react-icons/fi";
 import { HiOutlineLogin } from "react-icons/hi";
 import { IconButton } from "../IconButton/IconButton";
 import { PasswordInput } from "../FormInputs/PasswordInput";
@@ -10,6 +10,7 @@ import { emailRegex } from "../../utils/regex";
 import { ModalActions, useModal } from "../../context/ModalProvider";
 import { useState } from "react";
 import { loginUser } from "../../services/user";
+
 import {
   getErrorMessage,
   saveToLocalStorage,
@@ -21,17 +22,13 @@ import { useAuth } from "../../context/AuthProvider";
 export const LoginForm = () => {
   const { modalDispatch } = useModal();
   const navigate = useNavigate();
-  const { authState, authDispatch } = useAuth();
+  const { authDispatch } = useAuth();
   const [loading, setLoading] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ILogin>({
-    defaultValues: {
-      password: "password@123",
-    },
-  });
+  } = useForm<ILogin>();
 
   const loginHandler = async (data: ILogin) => {
     try {
@@ -78,7 +75,7 @@ export const LoginForm = () => {
         label="Password"
         name="password"
         placeholder="Enter password"
-        icon={<FiUnlock className="input-icon" />}
+        icon={<FiLock className="input-icon" />}
         rules={{
           required: {
             value: true,
@@ -97,7 +94,7 @@ export const LoginForm = () => {
 
       <div className="form-footer">
         <span>
-          Don't have account?{" "}
+          {`Don't have account?`}
           <strong onClick={() => modalDispatch({ type: ModalActions.signup })}>
             Sign up
           </strong>
