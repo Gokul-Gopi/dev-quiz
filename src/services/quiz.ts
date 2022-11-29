@@ -1,19 +1,19 @@
 import { invokeAxios } from "../utils/axios";
+import { getErrorMessage, showToast } from "../utils/helpers";
 
 export const getQuizes = async () => {
   try {
-    const response = await invokeAxios("/quizes");
-    return response;
+    return await invokeAxios("/quiz");
   } catch (error) {
-    throw error;
+    return showToast(getErrorMessage(error), "error");
   }
 };
 
 export const getQuiz = async (quizId: string) => {
   try {
     const response = await invokeAxios(`/quiz/${quizId}`);
-    return response;
+    return [response, null];
   } catch (error) {
-    throw error;
+    return [null, error];
   }
 };

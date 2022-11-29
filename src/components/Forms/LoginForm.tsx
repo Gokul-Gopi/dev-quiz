@@ -12,7 +12,7 @@ import { useState } from "react";
 import { loginUser } from "../../services/user";
 
 import {
-  getErrorMessage,
+  addAuthHeader,
   saveToLocalStorage,
   showToast,
 } from "../../utils/helpers";
@@ -31,24 +31,20 @@ export const LoginForm = () => {
   } = useForm<ILogin>();
 
   const loginHandler = async (data: ILogin) => {
-    try {
-      setLoading(true);
-      const response = await loginUser(data);
-      if (response?.status === 200) {
-        const userDetails = response?.data?.data;
-        saveToLocalStorage(userDetails);
-        authDispatch({
-          type: "SET_USER",
-          payload: { name: userDetails?.firstname, isLoggedIn: true },
-        });
-        showToast("Logged in", "success");
-        navigate("/quiz");
-      }
-    } catch (error: any) {
-      showToast(getErrorMessage(error), "error");
-    } finally {
-      setLoading(false);
+    setLoading(true);
+    const response: any = await loginUser(data);
+    if (response?.status === 200) {
+      const userDetails = response?.data?.data;
+      saveToLocalStorage(userDetails);
+      addAuthHeader(userDetails?.token);
+      authDispatch({
+        type: "SET_USER",
+        payload: { name: userDetails?.firstname, isLoggedIn: true },
+      });
+      showToast("Logged in", "success");
+      navigate("/quiz");
     }
+    setLoading(false);
   };
 
   return (

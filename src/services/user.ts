@@ -1,19 +1,18 @@
 import { invokeAxios } from "../utils/axios";
+import { getErrorMessage, showToast } from "../utils/helpers";
 
 export const loginUser = async (data: any) => {
   try {
-    const response = await invokeAxios("/auth/login", data, "POST");
-    return response;
+    return await invokeAxios("/auth/login", data, "POST");
   } catch (error) {
-    throw error;
+    return showToast(getErrorMessage(error), "error");
   }
 };
 
 export const regsiterUser = async (data: any) => {
   try {
-    const response = await invokeAxios("/auth/register", data, "POST");
-    return response;
+    return await invokeAxios("/auth/register", data, "POST");
   } catch (error) {
-    throw error;
+    return showToast(getErrorMessage(error), "error");
   }
 };

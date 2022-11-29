@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
-import { axiosInstance } from "../utils/axios";
+import { addAuthHeader } from "../utils/helpers";
 import { IAuthAction, IAuthState } from "../utils/types";
 
 const initialState = {
@@ -9,9 +9,10 @@ const initialState = {
 
 const reducer = (state: IAuthState, action: IAuthAction): IAuthState => {
   switch (action.type) {
-    case "SET_USER":
+    case "SET_USER": {
       const { name, isLoggedIn } = action.payload;
       return { name, isLoggedIn };
+    }
 
     default:
       return state;
@@ -20,6 +21,7 @@ const reducer = (state: IAuthState, action: IAuthAction): IAuthState => {
 
 const AuthContext = createContext({
   authState: initialState,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function
   authDispatch: (action: IAuthAction) => {},
 });
 
@@ -34,9 +36,7 @@ const AuthProvider = ({ children }: { children: JSX.Element }) => {
         type: "SET_USER",
         payload: { name: userDetails?.firstname, isLoggedIn: true },
       });
-      axiosInstance.defaults.headers.common[
-        "authorization"
-      ] = `Bearer ${userDetails?.token}`;
+      addAuthHeader(userDetails?.token);
     } else {
       dispatch({
         type: "SET_USER",

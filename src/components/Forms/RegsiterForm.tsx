@@ -11,7 +11,7 @@ import { VscVerified } from "react-icons/vsc";
 import { IoCloseOutline } from "react-icons/io5";
 import { regsiterUser } from "../../services/user";
 import { useState } from "react";
-import { getErrorMessage, showToast } from "../../utils/helpers";
+import { showToast } from "../../utils/helpers";
 import { useModal } from "../../context/ModalProvider";
 
 interface IRegsiterForm {
@@ -29,18 +29,13 @@ export const RegsiterForm = ({ closeForm }: IRegsiterForm) => {
   } = useForm<IRegisterUser>();
 
   const registerHandler = async (data: IRegisterUser) => {
-    try {
-      setLoading(true);
-      const response = await regsiterUser(data);
-      if (response?.status === 201) {
-        showToast("Account created, Please login to continue", "success");
-        modalDispatch({ type: "SIGNUP_MODAL" });
-      }
-    } catch (error: any) {
-      return showToast(getErrorMessage(error), "error");
-    } finally {
-      setLoading(false);
+    setLoading(true);
+    const response: any = await regsiterUser(data);
+    if (response?.status === 201) {
+      showToast("Account created, Please login to continue", "success");
+      modalDispatch({ type: "SIGNUP_MODAL" });
     }
+    setLoading(false);
   };
 
   return (

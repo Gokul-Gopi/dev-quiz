@@ -1,4 +1,5 @@
 import { toast, ToastOptions } from "react-toastify";
+import { axiosInstance } from "./axios";
 
 export const showToast = (
   message: string,
@@ -18,7 +19,7 @@ export const showToast = (
 };
 
 export const getErrorMessage = (error: any) => {
-  let message =
+  const message =
     error?.response?.data?.message ||
     error?.response?.message ||
     error?.response?.statusText ||
@@ -30,4 +31,10 @@ export const getErrorMessage = (error: any) => {
 
 export const saveToLocalStorage = (data: any) => {
   return localStorage.setItem("user", JSON.stringify(data));
+};
+
+export const addAuthHeader = (token: string) => {
+  return (axiosInstance.defaults.headers.common[
+    "authorization"
+  ] = `Bearer ${token}`);
 };

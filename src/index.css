@@ -31,3 +31,9 @@ button {
   cursor: pointer;
   border: none;
 }
+
+.loader-container {
+  display: grid;
+  place-items: center;
+  min-height: 99vh;
+}
