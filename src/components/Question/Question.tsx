@@ -1,32 +1,38 @@
 import { useForm } from "react-hook-form";
 import "./Question.css";
 import { IoIosArrowForward } from "react-icons/io";
+import { IQuestionDetails } from "../../utils/types";
 
-export const Question = () => {
+export const Question = ({
+  question,
+  options,
+  setNextQuestion,
+}: IQuestionDetails) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  return (
-    <form className="question">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, nam!
-      </p>
+  const nextQuestion = (data: any) => {
+    console.log(data);
+    setNextQuestion((preState) => preState + 1);
+  };
 
-      {[1, 2, 3, 4].map((e, i) => {
+  return (
+    <form className="question" onSubmit={handleSubmit(nextQuestion)}>
+      <p>{question}</p>
+
+      {options?.map((e, i) => {
         return (
           <div key={`option${i}`} className="option">
             <input type="radio" {...register("option")} />
-            <label htmlFor="option">
-              Lorem ipsum dolor sit amet consectetur.
-            </label>
+            <label htmlFor="option">{e?.option}</label>
           </div>
         );
       })}
 
-      <button>
+      <button type="submit">
         <IoIosArrowForward className="icon" />
       </button>
     </form>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Loader } from "../../components/Loader/Loader";
 import { InstructionModal } from "../../components/Modals/InstructionModal";
 import { QuizTopic } from "../../components/QuizTopic/QuizTopic";
@@ -75,7 +76,11 @@ export const QuizSelection = () => {
 
         <div className="quiz-topic-container">
           {quizes.map((e: any) => {
-            return <QuizTopic key={e._id} image={e.image} name={e.name} />;
+            return (
+              <Link to={`${e._id}`} key={e._id}>
+                <QuizTopic image={e?.image} name={e?.name} />
+              </Link>
+            );
           })}
         </div>
 

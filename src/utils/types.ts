@@ -1,5 +1,3 @@
-import { IconType } from "react-icons";
-
 export interface IFormInput {
   label: string;
   name: string;
@@ -33,6 +31,16 @@ export interface IRegisterUser {
 export interface IQuizTopic {
   name: string;
   image: string;
+}
+
+export interface IQuestionDetails {
+  question: string;
+  options: IOption[];
+  setNextQuestion: React.Dispatch<React.SetStateAction<number>>;
+}
+export interface IOption {
+  option: string;
+  isCorrect: boolean;
 }
 
 export interface IModalState {

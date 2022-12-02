@@ -11,9 +11,8 @@ export const getQuizes = async () => {
 
 export const getQuiz = async (quizId: string) => {
   try {
-    const response = await invokeAxios(`/quiz/${quizId}`);
-    return [response, null];
+    return await invokeAxios(`/quiz/${quizId}`);
   } catch (error) {
-    return [null, error];
+    return showToast(getErrorMessage(error), "error");
   }
 };
